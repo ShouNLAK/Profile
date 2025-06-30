@@ -6,6 +6,19 @@
   <title>ShouNLAK's GitHub Profile</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --mc-green: #3c8527;
+      --mc-brown: #6d4c23;
+      --mc-dark: #232526;
+      --mc-light: #f4f4f4;
+      --mc-accent: #88f769;
+      --mc-shadow: 0 4px 24px rgba(0,0,0,0.18);
+      --mc-border: #bdbdbd;
+      --mc-progress-bg: #b7a26b;
+      --mc-progress-fill: #6fcf3c;
+      --mc-progress-shadow: 0 2px 8px #00000022;
+      --mc-sidebar-bg: rgba(44, 54, 63, 0.97);
+    }
     body {
       background: linear-gradient(135deg, #232526 0%, #414345 100%);
       font-family: 'Roboto', Arial, sans-serif;
@@ -20,6 +33,16 @@
       from { opacity: 0; }
       to { opacity: 1; }
     }
+    body, .profile-card, .section, details, .music-table td, .project-table td, .sidebar, .toggle-mode-btn {
+      transition:
+        background 0.5s cubic-bezier(.4,0,.2,1),
+        color 0.5s cubic-bezier(.4,0,.2,1),
+        box-shadow 0.4s cubic-bezier(.4,0,.2,1),
+        border 0.4s cubic-bezier(.4,0,.2,1);
+    }
+    .profile-card, .section, details, .music-table td, .project-table td {
+      will-change: background, color, box-shadow, transform;
+    }
     .profile-card {
       background: rgba(34, 40, 49, 0.95);
       border-radius: 18px;
@@ -28,10 +51,20 @@
       max-width: 900px;
       padding: 32px 32px 24px 32px;
       animation: fadeInUp 1.2s;
+      margin-left: 80px;
+      transition:
+        background 0.5s cubic-bezier(.4,0,.2,1),
+        color 0.5s cubic-bezier(.4,0,.2,1),
+        box-shadow 0.4s cubic-bezier(.4,0,.2,1),
+        transform 0.2s cubic-bezier(.4,0,.2,1);
     }
     @keyframes fadeInUp {
       from { opacity: 0; transform: translateY(40px);}
       to { opacity: 1; transform: translateY(0);}
+    }
+    .profile-card:hover {
+      box-shadow: 0 12px 48px #88f76933, 0 2px 12px #00000022;
+      transform: translateY(-2px) scale(1.01);
     }
     .center {
       text-align: center;
@@ -53,6 +86,15 @@
       border-radius: 14px;
       box-shadow: 0 2px 12px rgba(0,0,0,0.10);
       animation: fadeInUp 1.2s;
+      transition:
+        background 0.5s cubic-bezier(.4,0,.2,1),
+        color 0.5s cubic-bezier(.4,0,.2,1),
+        box-shadow 0.4s cubic-bezier(.4,0,.2,1),
+        transform 0.2s cubic-bezier(.4,0,.2,1);
+    }
+    .section:hover, details:hover, .music-table td:hover, .project-table td:hover {
+      box-shadow: 0 8px 32px #88f76933, 0 2px 12px #00000022;
+      transform: translateY(-2px) scale(1.015);
     }
     .section h2, .section h3 {
       font-family: 'JetBrains Mono', monospace;
@@ -135,6 +177,12 @@
       box-shadow: 0 2px 8px #00000022;
       background: #232526;
       animation: fadeInUp 1.2s;
+      transition: transform 0.3s cubic-bezier(.4,0,.2,1), box-shadow 0.3s cubic-bezier(.4,0,.2,1), filter 0.3s cubic-bezier(.4,0,.2,1);
+    }
+    .github-stats img:hover, .github-trophy img:hover {
+      transform: scale(1.10) rotate(2deg);
+      box-shadow: 0 6px 24px #88f76955;
+      filter: brightness(1.08);
     }
     .project-table {
       width: 100%;
@@ -153,6 +201,7 @@
     .project-table td:hover {
       transform: scale(1.025) translateY(-4px);
       box-shadow: 0 6px 24px #88f76933;
+      filter: brightness(1.04) drop-shadow(0 0 8px #88f76944);
     }
     .project-table h4 {
       color: #88f769;
@@ -190,6 +239,7 @@
     .music-table td:hover {
       transform: scale(1.04) rotate(-1deg);
       box-shadow: 0 4px 16px #88f76933;
+      filter: brightness(1.04) drop-shadow(0 0 8px #88f76944);
     }
     .music-table img {
       border-radius: 8px;
@@ -199,27 +249,28 @@
     }
     .music-table img:hover {
       transform: scale(1.08) rotate(2deg);
-      filter: drop-shadow(0 0 8px #88f76955);
+      box-shadow: 0 6px 24px #88f76955;
+      filter: brightness(1.08);
     }
     .socials a img {
       margin: 0 6px 8px 6px;
-      transition: transform 0.2s, box-shadow 0.2s;
+      transition: transform 0.3s cubic-bezier(.4,0,.2,1), box-shadow 0.3s cubic-bezier(.4,0,.2,1);
       border-radius: 8px;
       box-shadow: 0 2px 8px #00000022;
     }
     .socials a img:hover {
-      transform: scale(1.08) rotate(-2deg);
-      box-shadow: 0 4px 16px #88f76933;
+      transform: scale(1.12) rotate(-2deg);
+      box-shadow: 0 6px 24px #88f76955;
     }
     .leave-message img {
       margin-top: 10px;
       border-radius: 8px;
       box-shadow: 0 2px 8px #00000022;
-      transition: transform 0.2s;
+      transition: transform 0.3s cubic-bezier(.4,0,.2,1), box-shadow 0.3s cubic-bezier(.4,0,.2,1);
     }
     .leave-message img:hover {
-      transform: scale(1.06) rotate(1deg);
-      box-shadow: 0 4px 16px #88f76933;
+      transform: scale(1.10) rotate(1deg);
+      box-shadow: 0 6px 24px #88f76955;
     }
     .footer {
       text-align: center;
@@ -228,18 +279,336 @@
       margin: 32px 0 12px 0;
       letter-spacing: 0.01em;
     }
-    @media (max-width: 900px) {
-      .profile-card { padding: 18px 4vw; }
-      .project-table, .music-table { font-size: 0.97em; }
+
+    /* --- BẮT ĐẦU PHẦN CẬP NHẬT --- */
+
+    /* Container mới cho đồng hồ và nút bấm */
+    .top-right-container {
+      position: fixed;
+      top: 24px;
+      right: 24px;
+      z-index: 1001;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end; /* Căn các item về phía cuối (bên phải) */
+      gap: 12px; /* Khoảng cách giữa đồng hồ và nút bấm */
+    }
+
+    /* Loại bỏ position:fixed và căn chỉnh lại nút bấm */
+    .toggle-mode-btn {
+      position: relative; /* Thay đổi từ fixed */
+      z-index: 1001;
+      background: var(--mc-dark);
+      border: 2px solid var(--mc-accent);
+      color: var(--mc-accent);
+      border-radius: 16px;
+      padding: 8px 18px 8px 38px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 1em;
+      cursor: pointer;
+      box-shadow: 0 2px 12px #00000033, 0 0 0 0 #88f769;
+      transition:
+        background 0.4s cubic-bezier(.4,0,.2,1),
+        color 0.4s cubic-bezier(.4,0,.2,1),
+        border 0.4s cubic-bezier(.4,0,.2,1),
+        box-shadow 0.3s cubic-bezier(.4,0,.2,1),
+        transform 0.2s cubic-bezier(.4,0,.2,1);
+      outline: none;
+      background-image: none !important;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+    }
+
+    /* Thiết kế lại ô đồng hồ */
+    .corner-clock-box {
+      position: relative; /* Thay đổi từ fixed */
+      z-index: 1002;
+      background: rgba(44, 54, 63, 0.97);
+      color: #fff;
+      border-radius: 16px; /* Bo tròn góc giống nút bấm */
+      box-shadow: 0 2px 12px #00000022;
+      padding: 12px 22px;
+      font-family: 'JetBrains Mono', monospace;
+      min-width: 190px;
+      display: flex;
+      flex-direction: column;
+      align-items: center; /* Căn giữa nội dung */
+      gap: 4px;
+      transition: background 0.3s, color 0.3s;
+      pointer-events: none;
+      user-select: text;
+    }
+
+    .corner-clock-box .corner-label {
+      font-size: 0.9em;
+      color: #88f769;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      margin-bottom: 2px;
+    }
+    .corner-clock-box .corner-time {
+      font-size: 1.1em;
+      color: #fff;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+    }
+    .corner-clock-box .corner-date {
+      font-size: 0.95em;
+      color: #e0e0e0;
+      opacity: 0.85;
+      font-weight: 400;
+    }
+
+    /* CSS cho ô đồng hồ ở Light Mode */
+    body.light-mode .corner-clock-box {
+        background: rgba(255, 255, 255, 0.96);
+    }
+    body.light-mode .corner-clock-box .corner-label {
+        color: var(--mc-green);
+    }
+    body.light-mode .corner-clock-box .corner-time {
+        color: #232526;
+    }
+    body.light-mode .corner-clock-box .corner-date {
+        color: #444;
+    }
+
+    /* Responsive cho container mới */
+    @media (max-width: 700px) {
+      .top-right-container {
+        top: 8px;
+        right: 8px;
+      }
+    }
+
+    /* --- KẾT THÚC PHẦN CẬP NHẬT --- */
+    
+    .toggle-mode-btn .mode-icon {
+      font-size: 1.5em;
+      margin-right: 12px;
+      transition: color 0.3s;
+      line-height: 1;
+      display: inline-block;
+      width: 1.5em;
+      text-align: center;
+    }
+    .toggle-mode-btn.light .mode-icon {
+      color: #e94057;
+    }
+    .toggle-mode-btn.dark .mode-icon {
+      color: #f7e900;
+    }
+    .toggle-mode-btn:active {
+      transform: scale(0.96);
+      box-shadow: 0 1px 4px #88f76955;
+    }
+    .toggle-mode-btn:hover {
+      box-shadow: 0 4px 24px #88f76955, 0 0 0 4px #88f76933;
+      background: var(--mc-accent);
+      color: #232526;
+    }
+    .toggle-mode-btn.light {
+      background: #fff;
+      color: var(--mc-green);
+      border: 2px solid var(--mc-green);
+    }
+    .sidebar {
+      position: fixed;
+      left: 0;
+      top: 0;
+      height: 100vh;
+      width: 64px;
+      background: var(--mc-sidebar-bg);
+      box-shadow: 2px 0 12px #00000022;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      z-index: 1000;
+      padding-top: 80px;
+      transition: background 0.2s;
+    }
+    .sidebar .mc-progress-container {
+      width: 32px;
+      height: 320px;
+      background: var(--mc-progress-bg);
+      border: 3px solid var(--mc-brown);
+      border-radius: 8px;
+      box-shadow: var(--mc-progress-shadow);
+      display: flex;
+      align-items: flex-end;
+      margin-bottom: 24px;
+      overflow: hidden;
+      position: relative;
+    }
+    .sidebar .mc-progress-bar {
+      width: 100%;
+      background: linear-gradient(0deg, var(--mc-progress-fill) 80%, #b7e97a 100%);
+      box-shadow: 0 0 8px #6fcf3c88;
+      transition: height 0.4s cubic-bezier(.4,2,.6,1);
+      border-radius: 0 0 6px 6px;
+    }
+    .sidebar .mc-progress-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.9em;
+      color: var(--mc-accent);
+      margin-top: 8px;
+      text-align: center;
+      writing-mode: vertical-lr;
+      transform: rotate(180deg);
+      letter-spacing: 0.04em;
+      user-select: none;
+    }
+    /* Light mode styles */
+    body.light-mode {
+      background: linear-gradient(135deg, #f4f4f4 0%, #e0e0e0 100%);
+      color: #232526;
+    }
+    body.light-mode .profile-card,
+    body.light-mode .section,
+    body.light-mode details,
+    body.light-mode .music-table td,
+    body.light-mode .project-table td {
+      background: rgba(255,255,255,0.96) !important;
+      color: #232526 !important;
+      box-shadow: 0 2px 12px #bdbdbd33;
+    }
+    body.light-mode .project-table h4,
+    body.light-mode .project-table p,
+    body.light-mode .project-table a {
+      color: #232526 !important;
+    }
+    body.light-mode .project-table a:hover {
+      color: #3c8527 !important;
+    }
+    body.light-mode .sidebar {
+      background: rgba(220, 230, 240, 0.97);
+    }
+    body.light-mode .mc-progress-container {
+      background: #e0e0e0;
+      border-color: #bdbdbd;
+    }
+    body.light-mode .mc-progress-bar {
+      background: linear-gradient(0deg, #6fcf3c 80%, #b7e97a 100%);
+      box-shadow: 0 0 8px #6fcf3c44;
+    }
+    body.light-mode .mc-progress-label {
+      color: #3c8527;
+    }
+    body.light-mode .toc-summary h2,
+    body.light-mode .section h2,
+    body.light-mode .section h3,
+    body.light-mode summary {
+      color: #3c8527;
+    }
+    body.light-mode .music-filter-btn {
+      background: #fff;
+      color: #3c8527;
+      border-color: #3c8527;
+    }
+    body.light-mode .music-filter-btn.active,
+    body.light-mode .music-filter-btn:hover {
+      background: #3c8527;
+      color: #fff;
+      border-color: #232526;
+    }
+    body.light-mode .toggle-mode-btn {
+      background: #fff;
+      color: #3c8527;
+      border: 2px solid #3c8527;
+    }
+    body.light-mode .toggle-mode-btn.light {
+      background: #232526;
+      color: #88f769;
+      border: 2px solid #88f769;
+    }
+    body.light-mode .footer {
+      color: #888;
     }
     @media (max-width: 700px) {
-      .profile-card { padding: 8px 2vw; }
-      .project-table tr, .music-table tr { display: block; }
-      .project-table td, .music-table td { display: block; width: 100%; margin-bottom: 18px; }
+      .sidebar { display: none; }
+      .profile-card { margin-left: 0 !important; }
+    }
+    @media (max-width: 900px) {
+      .profile-card { padding: 18px 4vw; margin-left: 0; }
+    }
+    /* Music filter buttons */
+    .music-filter-bar {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 18px;
+      margin-top: 8px;
+      flex-wrap: wrap;
+    }
+    .music-filter-btn {
+      background: var(--mc-dark);
+      color: var(--mc-accent);
+      border: 2px solid var(--mc-accent);
+      border-radius: 8px;
+      padding: 6px 18px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 1em;
+      cursor: pointer;
+      transition: background 0.3s cubic-bezier(.4,0,.2,1), color 0.3s cubic-bezier(.4,0,.2,1), border 0.3s cubic-bezier(.4,0,.2,1), transform 0.2s cubic-bezier(.4,0,.2,1);
+      outline: none;
+      margin-bottom: 4px;
+    }
+    .music-filter-btn:active {
+      transform: scale(0.96);
+    }
+    .music-filter-btn.active,
+    .music-filter-btn:hover {
+      background: var(--mc-accent);
+      color: #232526;
+      border: 2px solid #232526;
+      box-shadow: 0 2px 12px #88f76955;
+    }
+    details[open] summary {
+      color: #fff !important;
+      background: linear-gradient(90deg, #88f76922 0%, #23252600 100%);
+      border-radius: 10px 10px 0 0;
+      transition: background 0.3s cubic-bezier(.4,0,.2,1), color 0.3s cubic-bezier(.4,0,.2,1);
+    }
+    body.light-mode details[open] summary {
+      color: #3c8527 !important;
+      background: linear-gradient(90deg, #b7e97a33 0%, #fff0 100%);
+    }
+    ::-webkit-scrollbar {
+      width: 10px;
+      background: #232526;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #6fcf3c;
+      border-radius: 8px;
+      transition: background 0.3s;
+    }
+    body.light-mode ::-webkit-scrollbar {
+      background: #e0e0e0;
+    }
+    body.light-mode ::-webkit-scrollbar-thumb {
+      background: #b7e97a;
     }
   </style>
 </head>
 <body>
+  
+  <div class="top-right-container">
+    <div class="corner-clock-box" id="cornerClockBox">
+      </div>
+    <button class="toggle-mode-btn dark" id="toggleModeBtn" title="Toggle Dark/Light Mode">
+      <span class="mode-icon" id="modeIcon">☾</span>
+      <span id="modeText">Dark Mode</span>
+    </button>
+  </div>
+
+  <div class="sidebar">
+    <div class="mc-progress-container">
+      <div class="mc-progress-bar" id="mcProgressBar" style="height:0%"></div>
+    </div>
+    <div class="mc-progress-label">Scroll XP</div>
+  </div>
+
   <div class="profile-card">
     <div class="center">
       <img src="https://readme-typing-svg.demolab.com?font=Roboto&duration=9000&pause=1000&color=88F769&center=true&width=750&lines=Welcome+to+ShouNLAK's+GitHub+Profile!;%F0%9F%9A%80+I+hope+you+find+something+useful+here%E2%80%94let%E2%80%99s+build+something+amazing+together!+%F0%9F%9A%80;(%CB%98%EF%B8%B6%CB%98).%EF%BD%A1.%3A*%E2%99%A1" alt="Typing SVG" style="margin-bottom: 10px;"/>
@@ -319,9 +688,15 @@
     <details>
       <summary align="center"><h3>🎵 Favorite Music</h3></summary>
       <div class="center section" style="padding-top:10px;">
+        <div class="music-filter-bar">
+          <button class="music-filter-btn active" data-region="all">All</button>
+          <button class="music-filter-btn" data-region="jpop">J-Pop</button>
+          <button class="music-filter-btn" data-region="usuk">US-UK</button>
+          <button class="music-filter-btn" data-region="vpop">V-Pop</button>
+        </div>
         <p>Here are a few songs I've been enjoying recently.</p>
-        <table class="music-table" align="center" border="0" cellpadding="10" cellspacing="0">
-          <tr>
+        <table class="music-table" id="musicTable" align="center" border="0" cellpadding="10" cellspacing="0">
+          <tr data-region="jpop">
             <td align="center">
               <a href="https://music.youtube.com/watch?v=qdzaq8IOjuw&si=auynnT5_oosX343F">
                 <img src="https://img.youtube.com/vi/qdzaq8IOjuw/hqdefault.jpg" width="200" alt="Seikai - RADWIMPS"><br>
@@ -338,6 +713,34 @@
               <a href="https://music.youtube.com/watch?v=U6Gmj32FID0&si=wFO0ER5ESsyF_PCl">
                 <img src="https://img.youtube.com/vi/U6Gmj32FID0/hqdefault.jpg" width="200" alt="HYURURIRAPAPPA - tuki."><br>
                 <b>HYURURIRAPAPPA</b><br>by tuki.
+              </a>
+            </td>
+          </tr>
+          <tr data-region="usuk">
+            <td align="center">
+              <a href="https://music.youtube.com/watch?v=Ye9hGotPPVk">
+                <img src="https://lh3.googleusercontent.com/De2qH8Uwg4XEgI0l3mWJlQJ1Vh3Gq1LX4baJJE1Bws9OsUG83tC7h392Uc1TE4-rVajykiTJ6bulSbwrJg=w544-h544-s-l90-rj" width="200" alt="I'm Still Standing - Elton John"><br>
+                <b>I'm Still Standing</b><br>by Elton John
+              </a>
+            </td>
+            <td align="center">
+              <a href="https://music.youtube.com/watch?v=6POZlJAZsok">
+                <img src="https://lh3.googleusercontent.com/qyqzIx9ra_EjlgylAe7CjPhaRGUo2Msxhiddn3bnDSuI71gS15EqqZeAq-hI3rIGSlMgdGn_246v8hyrTg=w544-h544-l90-rj" width="200" alt="Just the Two of Us - Grover Washington, Jr"><br>
+                <b>Just the Two of US</b><br>by Grover Washington, Jr
+              </a>
+            </td>
+          </tr>
+          <tr data-region="vpop">
+            <td align="center">
+              <a href="https://music.youtube.com/watch?v=qHpE45b4INk">
+                <img src="https://lh3.googleusercontent.com/guPkUMfq6XoStEBVJwwWMD5dttVFgi0OXpzHZ0hvPD0kWxdVkrMbMCBNRDZlUy_N953vMI_r-6x1X_IEWQ=w544-h544-l90-rj" width="200" alt="Nơi này có anh - Sơn Tùng M-TP"><br>
+                <b>Nơi này có anh</b><br>by Sơn Tùng M-TP
+              </a>
+            </td>
+            <td align="center">
+              <a href="https://music.youtube.com/watch?v=CvuQsZ974kY">
+                <img src="https://lh3.googleusercontent.com/JIBlayax-Gh78ySAl9Iqf2AXOOVhSYAQ0NFUtnBeziaxXtLLZPKw3VkDfKslIFabRZIPzqkjV3xD8wk7=w544-h544-l90-rj" width="200" alt="Lớn rồi còn khóc nhè - Trúc Nhân"><br>
+                <b>Lớn rồi còn khóc nhè</b><br>by Trúc Nhân
               </a>
             </td>
           </tr>
@@ -369,5 +772,110 @@
       <i>Thank you for visiting my profile! Let's connect and build something amazing together! 🚀</i>
     </div>
   </div>
+
+  <script>
+    // Dark/Light mode toggle
+    const toggleBtn = document.getElementById('toggleModeBtn');
+    const modeIcon = document.getElementById('modeIcon');
+    const modeText = document.getElementById('modeText');
+    function setMode(light) {
+      document.body.classList.toggle('light-mode', light);
+      toggleBtn.classList.toggle('light', light);
+      toggleBtn.classList.toggle('dark', !light);
+      if (light) {
+        modeIcon.textContent = '☀';
+        modeText.textContent = 'Light Mode';
+      } else {
+        modeIcon.textContent = '☾';
+        modeText.textContent = 'Dark Mode';
+      }
+    }
+    toggleBtn.addEventListener('click', () => {
+      const isLight = !document.body.classList.contains('light-mode');
+      setMode(isLight);
+      localStorage.setItem('profileTheme', isLight ? 'light' : 'dark');
+    });
+    // On load, restore mode
+    (() => {
+      const saved = localStorage.getItem('profileTheme');
+      if (saved === 'light') setMode(true);
+      else setMode(false);
+    })();
+
+    // Sidebar Minecraft progress bar
+    function updateProgressBar() {
+      const bar = document.getElementById('mcProgressBar');
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const scrolled = Math.max(0, window.scrollY);
+      const percent = docHeight > 0 ? Math.min(100, (scrolled / docHeight) * 100) : 0;
+      bar.style.height = percent + '%';
+    }
+    window.addEventListener('scroll', updateProgressBar);
+    window.addEventListener('resize', updateProgressBar);
+    document.addEventListener('DOMContentLoaded', updateProgressBar);
+
+    // Music region filter
+    const filterBtns = document.querySelectorAll('.music-filter-btn');
+    const musicTable = document.getElementById('musicTable');
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const region = btn.dataset.region;
+        Array.from(musicTable.rows).forEach(row => {
+          if (region === 'all' || row.dataset.region === region) {
+            row.style.display = '';
+          } else {
+            row.style.display = 'none';
+          }
+        });
+      });
+    });
+
+    // Góc phải dưới cùng: Hiển thị thời gian GMT+7 và Local
+    function pad2(n) { return n < 10 ? '0' + n : n; }
+    function formatTime(dt) {
+      return `${pad2(dt.getHours())}:${pad2(dt.getMinutes())}:${pad2(dt.getSeconds())}`;
+    }
+    function formatDate(dt) {
+      return `${pad2(dt.getDate())}/${pad2(dt.getMonth()+1)}/${dt.getFullYear()}`;
+    }
+    function updateCornerClockBox() {
+      const now = new Date();
+      const utc = now.getTime() + (now.getTimezoneOffset() * 60000);
+      const gmt7 = new Date(utc + 7 * 3600000);
+
+      // So sánh múi giờ
+      const isSame =
+        now.getHours() === gmt7.getHours() &&
+        now.getMinutes() === gmt7.getMinutes() &&
+        now.getDate() === gmt7.getDate() &&
+        now.getMonth() === gmt7.getMonth() &&
+        now.getFullYear() === gmt7.getFullYear() &&
+        now.getTimezoneOffset() === -420;
+
+      let html = '';
+      if (isSame) {
+        html = `
+          <div class="corner-label">GMT+7</div>
+          <div class="corner-time">${formatTime(gmt7)}</div>
+          <div class="corner-date">${formatDate(gmt7)}</div>
+        `;
+      } else {
+        html = `
+          <div class="corner-label">GMT+7</div>
+          <div class="corner-time">${formatTime(gmt7)}</div>
+          <div class="corner-date">${formatDate(gmt7)}</div>
+          <div style="height:6px"></div>
+          <div class="corner-label">Your Time</div>
+          <div class="corner-time">${formatTime(now)}</div>
+          <div class="corner-date">${formatDate(now)}</div>
+        `;
+      }
+      document.getElementById('cornerClockBox').innerHTML = html;
+    }
+    setInterval(updateCornerClockBox, 1000);
+    updateCornerClockBox();
+  </script>
 </body>
 </html>
