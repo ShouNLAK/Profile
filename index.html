@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>ShouNLAK's GitHub Profile</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(135deg, #232526 0%, #414345 100%);
+      font-family: 'Roboto', Arial, sans-serif;
+      color: #e0e0e0;
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      letter-spacing: 0.01em;
+      animation: fadeInBody 1.2s;
+    }
+    @keyframes fadeInBody {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    .profile-card {
+      background: rgba(34, 40, 49, 0.95);
+      border-radius: 18px;
+      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.25);
+      margin: 32px auto 0 auto;
+      max-width: 900px;
+      padding: 32px 32px 24px 32px;
+      animation: fadeInUp 1.2s;
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(40px);}
+      to { opacity: 1; transform: translateY(0);}
+    }
+    .center {
+      text-align: center;
+    }
+    .banner-img {
+      border-radius: 14px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+      margin: 18px 0 10px 0;
+      max-width: 100%;
+      transition: transform 0.3s;
+    }
+    .banner-img:hover {
+      transform: scale(1.025) rotate(-1deg);
+    }
+    .section {
+      margin: 32px 0 24px 0;
+      padding: 24px 18px;
+      background: rgba(44, 54, 63, 0.92);
+      border-radius: 14px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.10);
+      animation: fadeInUp 1.2s;
+    }
+    .section h2, .section h3 {
+      font-family: 'JetBrains Mono', monospace;
+      color: #88f769;
+      margin-bottom: 12px;
+      letter-spacing: 0.03em;
+    }
+    .section ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .section li {
+      margin-bottom: 8px;
+      font-size: 1.05em;
+    }
+    .profile-counter {
+      margin: 10px 0 0 0;
+      filter: drop-shadow(0 0 6px #222);
+    }
+    .toc-summary h2 {
+      display: inline-block;
+      margin: 0;
+      font-size: 2em;
+      font-weight: 700;
+      color: #88f769;
+      letter-spacing: 0.02em;
+      text-shadow: 0 2px 8px #1a1a1a44;
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .about-me {
+      font-size: 1.13em;
+      margin-bottom: 10px;
+      color: #e0e0e0;
+    }
+    .about-list {
+      margin: 0 0 0 18px;
+      padding: 0;
+      font-size: 1.04em;
+    }
+    .about-list li {
+      margin-bottom: 6px;
+    }
+    details {
+      margin: 24px 0;
+      border-radius: 10px;
+      background: rgba(44, 54, 63, 0.92);
+      box-shadow: 0 2px 12px rgba(0,0,0,0.10);
+      padding: 0 0 12px 0;
+      transition: box-shadow 0.2s;
+    }
+    details[open] {
+      box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+    }
+    summary {
+      cursor: pointer;
+      outline: none;
+      padding: 18px 0 10px 0;
+      font-size: 1.3em;
+      font-family: 'JetBrains Mono', monospace;
+      color: #88f769;
+      text-align: center;
+      transition: color 0.2s;
+    }
+    summary:hover {
+      color: #e0e0e0;
+    }
+    .skills-icons img, .tools-icons img {
+      margin: 0 4px 0 4px;
+      vertical-align: middle;
+      transition: transform 0.2s;
+    }
+    .skills-icons img:hover, .tools-icons img:hover {
+      transform: scale(1.12) rotate(-3deg);
+      filter: drop-shadow(0 0 6px #88f76988);
+    }
+    .github-stats img, .github-trophy img {
+      margin: 8px 8px 0 8px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px #00000022;
+      background: #232526;
+      animation: fadeInUp 1.2s;
+    }
+    .project-table {
+      width: 100%;
+      border-spacing: 0;
+      margin: 0 auto;
+      background: none;
+    }
+    .project-table td {
+      background: rgba(34, 40, 49, 0.92);
+      border-radius: 12px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.10);
+      padding: 18px 18px 12px 18px;
+      vertical-align: top;
+      transition: transform 0.2s;
+    }
+    .project-table td:hover {
+      transform: scale(1.025) translateY(-4px);
+      box-shadow: 0 6px 24px #88f76933;
+    }
+    .project-table h4 {
+      color: #88f769;
+      font-family: 'JetBrains Mono', monospace;
+      margin-bottom: 8px;
+    }
+    .project-table p {
+      color: #e0e0e0;
+      font-size: 1em;
+      margin-bottom: 8px;
+    }
+    .project-table a {
+      color: #88f769;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.2s;
+    }
+    .project-table a:hover {
+      color: #e0e0e0;
+      text-decoration: underline;
+    }
+    .music-table {
+      width: 100%;
+      border-spacing: 0;
+      margin: 0 auto;
+      background: none;
+    }
+    .music-table td {
+      background: rgba(44, 54, 63, 0.92);
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+      padding: 10px 10px 8px 10px;
+      transition: transform 0.2s;
+    }
+    .music-table td:hover {
+      transform: scale(1.04) rotate(-1deg);
+      box-shadow: 0 4px 16px #88f76933;
+    }
+    .music-table img {
+      border-radius: 8px;
+      margin-bottom: 8px;
+      box-shadow: 0 2px 8px #00000022;
+      transition: transform 0.2s;
+    }
+    .music-table img:hover {
+      transform: scale(1.08) rotate(2deg);
+      filter: drop-shadow(0 0 8px #88f76955);
+    }
+    .socials a img {
+      margin: 0 6px 8px 6px;
+      transition: transform 0.2s, box-shadow 0.2s;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px #00000022;
+    }
+    .socials a img:hover {
+      transform: scale(1.08) rotate(-2deg);
+      box-shadow: 0 4px 16px #88f76933;
+    }
+    .leave-message img {
+      margin-top: 10px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px #00000022;
+      transition: transform 0.2s;
+    }
+    .leave-message img:hover {
+      transform: scale(1.06) rotate(1deg);
+      box-shadow: 0 4px 16px #88f76933;
+    }
+    .footer {
+      text-align: center;
+      color: #888;
+      font-size: 1em;
+      margin: 32px 0 12px 0;
+      letter-spacing: 0.01em;
+    }
+    @media (max-width: 900px) {
+      .profile-card { padding: 18px 4vw; }
+      .project-table, .music-table { font-size: 0.97em; }
+    }
+    @media (max-width: 700px) {
+      .profile-card { padding: 8px 2vw; }
+      .project-table tr, .music-table tr { display: block; }
+      .project-table td, .music-table td { display: block; width: 100%; margin-bottom: 18px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="profile-card">
+    <div class="center">
+      <img src="https://readme-typing-svg.demolab.com?font=Roboto&duration=9000&pause=1000&color=88F769&center=true&width=750&lines=Welcome+to+ShouNLAK's+GitHub+Profile!;%F0%9F%9A%80+I+hope+you+find+something+useful+here%E2%80%94let%E2%80%99s+build+something+amazing+together!+%F0%9F%9A%80;(%CB%98%EF%B8%B6%CB%98).%EF%BD%A1.%3A*%E2%99%A1" alt="Typing SVG" style="margin-bottom: 10px;"/>
+    </div>
+    <div class="center">
+      <img class="banner-img" width="800" src="https://i.pinimg.com/1200x/fc/26/9f/fc269f05d0b1f4666aef0140a939ea7c.jpg" alt="Profile Banner" />
+    </div>
+    <div class="center">
+      <img class="profile-counter" src="https://profile-counter.glitch.me/ShouNLAK/count.svg?" alt="Profile Views"/>
+    </div>
+    <hr style="border: none; border-top: 1.5px solid #444; margin: 32px 0 24px 0;">
+    <div id="user-content-toc" class="center toc-summary">
+      <h2>Hi there, I'm Nguyen Le Anh Khoa 👋</h2>
+    </div>
+    <div class="about-me center section" style="margin-top:18px;">
+      I'm a first-year Information Technology student at <a href="https://huit.edu.vn/" style="color:#88f769;">HUIT</a> in Ho Chi Minh City, Vietnam. 🇻🇳<br/>
+      I'm passionate about software engineering and always eager to learn and explore new technologies. 🚀
+      <ul class="about-list" style="margin-top:18px;">
+        <li>🌱 <b>I’m currently learning:</b> Data Structures, Algorithms, and Mobile App Development.</li>
+        <li>💡 <b>My interests include:</b> Open source, UI/UX design, and cloud computing.</li>
+        <li>🤝 <b>I’m looking to collaborate on:</b> Student projects, hackathons, and science research.</li>
+        <li>🎯 <b>2025 Goals:</b> Build an IPTV project, learn new languages, and master deep learning algorithms.</li>
+        <li>🗣️ <b>Languages:</b> Vietnamese (Native), English (Intermediate), Japanese (Beginner).</li>
+        <li>✨ <b>Fun Fact:</b> I'm a big fan of anime! You can find me on <a href="https://myanimelist.net/profile/ShouNLAK" style="color:#88f769;">MyAnimeList</a>.</li>
+      </ul>
+    </div>
+    <details open>
+      <summary align="center"><h3>🛠️ My Skills & Environment</h3></summary>
+      <div class="center section" style="padding-top:10px;">
+        <div class="skills-icons">
+          <b>Coding Languages</b><br/>
+          <a href="https://skillicons.dev"><img src="https://skillicons.dev/icons?i=c,cpp,java,python" alt="Coding Languages"/></a>
+        </div>
+        <div class="skills-icons" style="margin-top:12px;">
+          <b>Operating Systems</b><br/>
+          <a href="https://skillicons.dev"><img src="https://skillicons.dev/icons?i=windows,linux,ubuntu,android" alt="Operating Systems"/></a>
+        </div>
+        <div class="tools-icons" style="margin-top:12px;">
+          <b>Coding Environment & Tools</b><br/>
+          <a href="https://skillicons.dev"><img src="https://skillicons.dev/icons?i=vscode,visualstudio,androidstudio,git,github,dotnet,oracle,figma,canva" alt="Coding Environment & Tools"/></a>
+        </div>
+      </div>
+    </details>
+    <details>
+      <summary align="center"><h3>📊 My GitHub Stats</h3></summary>
+      <div class="center section github-stats" style="padding-top:10px;">
+        <img src="https://github-readme-stats.vercel.app/api?username=ShouNLAK&show_icons=true&include_all_commits=true&count_private=true&theme=dracula&hide_border=false" height="140" alt="GitHub Stats" />
+        <img src="https://github-readme-stats.vercel.app/api/top-langs?username=ShouNLAK&layout=compact&theme=dracula&hide_border=false" height="140" alt="Top Languages" />
+        <img src="https://streak-stats.demolab.com?user=ShouNLAK&theme=dracula&hide_border=false" height="140" alt="GitHub Streak" />
+        <br/>
+        <img class="github-trophy" src="https://github-profile-trophy.vercel.app/?username=ShouNLAK&theme=dracula&column=7&margin-w=15&margin-h=15" alt="GitHub Trophies" />
+      </div>
+    </details>
+    <div class="section" style="margin-top:32px;">
+      <h3 class="center">🚀 Featured Projects</h3>
+      <table class="project-table" align="center">
+        <tr align="center">
+          <td width="50%">
+            <h4 align="center">BST vs. TreeSet Comparison</h4>
+            <p>A Java project to analyze and compare the performance of a custom-built Binary Search Tree (BST) against Java's standard <code>TreeSet</code> implementation for various operations.</p>
+            <p><b>Key Features:</b> Performance analysis, custom data structures, and comparative study.</p>
+            <p align="center">
+              <a href="https://github.com/ShouNLAK/BST-TreeSet-Comparison"><b>View on GitHub</b></a>
+            </p>
+          </td>
+          <td width="50%">
+            <h4 align="center">IPTV Online Checker</h4>
+            <p>A C / C++ script to check the online status of channels within an IPTV playlist (.m3u file). It efficiently validates URLs to filter out offline streams.</p>
+            <p><b>Key Features:</b> URL validation, multithreading for efficiency, and stream filtering.</p>
+            <p align="center">
+              <a href="https://github.com/ShouNLAK/Check-Online-IPTV"><b>View on GitHub</b></a>
+            </p>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <details>
+      <summary align="center"><h3>🎵 Favorite Music</h3></summary>
+      <div class="center section" style="padding-top:10px;">
+        <p>Here are a few songs I've been enjoying recently.</p>
+        <table class="music-table" align="center" border="0" cellpadding="10" cellspacing="0">
+          <tr>
+            <td align="center">
+              <a href="https://music.youtube.com/watch?v=qdzaq8IOjuw&si=auynnT5_oosX343F">
+                <img src="https://img.youtube.com/vi/qdzaq8IOjuw/hqdefault.jpg" width="200" alt="Seikai - RADWIMPS"><br>
+                <b>Seikai</b><br>by RADWIMPS
+              </a>
+            </td>
+            <td align="center">
+              <a href="https://music.youtube.com/watch?v=lkBsQjXthT8&si=if-Us8N5E4zb0YPS">
+                <img src="https://lh3.googleusercontent.com/6PrlhnplHrl69oMEZG8uSpSbdseCCkXmF2luIjImmK3lPnshXpWom5DzdDB89kra_OH27ICYoy4Q_CSz=w544-h544-l90-rj" width="200" alt="HEART BEAT - YOASOBI"><br>
+                <b>HEART BEAT</b><br>by YOASOBI
+              </a>
+            </td>
+            <td align="center">
+              <a href="https://music.youtube.com/watch?v=U6Gmj32FID0&si=wFO0ER5ESsyF_PCl">
+                <img src="https://img.youtube.com/vi/U6Gmj32FID0/hqdefault.jpg" width="200" alt="HYURURIRAPAPPA - tuki."><br>
+                <b>HYURURIRAPAPPA</b><br>by tuki.
+              </a>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </details>
+    <div class="section center" style="margin-top:32px;">
+      <h3>🌐 Social Media & Contact</h3>
+      <div class="socials" style="margin-top:10px;">
+        <a href="mailto:ShouNLAK@gmail.com"><img src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white" /></a>
+        <a href="https://vn.linkedin.com/in/anh-khoa-nguy%E1%BB%85n-l%C3%AA-2b931336a"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" /></a>
+        <a href="https://g.dev/ShouNLAK"><img src="https://img.shields.io/badge/Google_Dev-4285F4?style=for-the-badge&logo=google&logoColor=white" /></a>
+        <a href="http://facebook.com/ShouNLAK"><img src="https://img.shields.io/badge/Facebook-1877F2?style=for-the-badge&logo=facebook&logoColor=white" /></a>
+        <a href="https://discord.com/users/ShouNLAK"><img src="https://img.shields.io/badge/Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white" /></a>
+        <a href="https://x.com/ShouNLAK"><img src="https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white" /></a>
+      </div>
+    </div>
+    <div class="section center" style="margin-top:32px;">
+      <h3>🖊️ Leave a Message</h3>
+      <div class="leave-message">
+        Feel free to leave a comment, ask a question, or just say hi!
+        <br/><br/>
+        <a href="https://github.com/ShouNLAK/ShouNLAK/issues/new">
+          <img alt="Leave a message" src="https://img.shields.io/badge/Leave_a_Message_Here-0078D4?style=for-the-badge&logo=github&logoColor=white">
+        </a>
+      </div>
+    </div>
+    <div class="footer">
+      <i>Thank you for visiting my profile! Let's connect and build something amazing together! 🚀</i>
+    </div>
+  </div>
+</body>
+</html>
